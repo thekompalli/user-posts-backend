@@ -8,6 +8,8 @@ const userRoutes = require("./routes/user");
 
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 mongoose
   .connect(
     "mongodb+srv://kris:Dystopiancity1@cluster0-lz5gv.mongodb.net/users-posts?retryWrites=true&w=majority"
@@ -40,8 +42,8 @@ app.use((req, res, next) => {
 app.use("/api/posts", postsRoutes);
 app.use("/api/user", userRoutes);
 
-app.listen(3000, ()=>{
-  console.log("port working @ 3000")
+app.listen(port, ()=>{
+  console.log("port working @"+port)
 })
 
 module.exports = app;
